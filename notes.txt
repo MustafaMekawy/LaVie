@@ -1,0 +1,43 @@
+https://us04web.zoom.us/j/7613873522?pwd=akI5TmhTN1hqdHBtQmZ5djRyZHZMdz09
+password,*
+catogery=>{beginer,prof,adva}*
+terms condtions,*
+learn more *
+shopModel{}
+ShopModel{userid,name,address}
+plantModel{shopid,name,price,difficulty{esey,hard}}
+reglar user=>buy
+professional => has Shop =>buy,sell
+
+----------------
+const resetToken = crypto.randomBytes(32).toString('hex');
+  this.resetPasswordToken = crypto
+    .createHash('sha256')
+    .update(resetToken)
+    .digest('hex');
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+  return resetToken;
+  -----------
+  Forget your password? If you willing to reset it please click on this link \n http://127.0.0.1:3000/api/v1/user/resetpassword/${resetToken} \n If you aren't willing to change it please kindly ignore this message. \nthanks`,
+
+
+---------
+const hashedToken = crypto
+    .createHash('sha256')
+    .update(req.params.token)
+    .digest('hex');
+  const user = await User.findOne({
+    resetPasswordToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  if (!user) return next(new AppError('Token is invalid or has expired!', 400));
+
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  user.resetPasswordToken = undefined;
+  user.passwordResetExpires = undefined;
+  await user.save();
+
+  // login user
+  createResponse(user, res, 200);

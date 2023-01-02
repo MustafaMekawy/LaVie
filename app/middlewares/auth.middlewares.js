@@ -1,30 +1,23 @@
 const jwt = require('jsonwebtoken');
-const { promisify } = require('util');
 const User = require('../../db/model/user.model');
 const MyHelper = require('../helper');
-
-class auth {
-  static auth = async (req, res, next) => {
+  const auth = async (req, res, next) => {
     try {
       let token;
       if (req.headers.authorization.startsWith('Bearer'))
         token = req.headers.authorization.replace('Bearer ', '');
-
       const decoded = jwt.verify(token, process.env.tokenpass);
-
       const user = await User.findById(decoded.id);
       if (!user) throw new Error('This token is unvalid!');
-
       req.user = user;
       req.token = token;
-
       next();
     } catch (error) {
       MyHelper.reshandeler(res, 500, false, error, 'Unauthorized!!');
     }
   };
 
-  static restrictoTo = role => {
+  const restrictoTo = role => {
     return (req, res, next) => {
       try {
         if (req.user.role !== role)
@@ -35,6 +28,5 @@ class auth {
       }
     };
   };
-}
 
-module.exports = auth;
+module.exports = {auth,restrictoTo};
