@@ -41,3 +41,22 @@ const hashedToken = crypto
 
   // login user
   createResponse(user, res, 200);
+
+--------------------------------
+Shopping 
+----------------
+=> Shopping Cart [itmes] => confirm order (submit data) => on submit (email with confim code) => add itmes to your order (requesred -> shipped -> out for delivery -> deliverd)
+
+user => virtual(eorders) ref: order, foriegn: user id, local : _id
+| 
+cart => [userid , itemId]
+|
+plant
+|
+order => [itemId => userid]
+=> items,price => click => addres,payment,phone,email, =
+
+user,, wallet
+
+=>array => virtual ()
+

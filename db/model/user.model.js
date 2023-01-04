@@ -97,13 +97,14 @@ UserSchma.pre('save', async function () {
     this.passwordConfirmation = undefined;
   }
 });
-
+UserSchma.virtual("myOrders", {
+  ref:"Order",
+  localField:"_id",
+  foreignField:"userId"
+})
 UserSchma.methods.createPasswordResetToken = function() {
   const resetToken = crypto.randomBytes(32).toString('hex');
-  this.resetPasswordToken = crypto
-    .createHash('sha256')
-    .update(resetToken)
-    .digest('hex');
+  this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
   this.resetExpiresTime = Date.now() + 10 * 60 * 1000;
   return resetToken;
 }
