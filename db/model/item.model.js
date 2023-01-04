@@ -23,6 +23,15 @@ const ItemSchema = mongoose.Schema({
     enum: ['Easy', 'Hard'],
     default: 'Easy',
   },
+  reviews: {
+    type: [
+      {
+      userName:String,
+      Rating:Number,
+      review:String
+    }
+    ]
+  }
 });
 const Item = mongoose.model('Item', ItemSchema);
 module.exports = Item;

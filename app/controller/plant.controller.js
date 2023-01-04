@@ -19,6 +19,7 @@ class PlantClass {
   static Getplant = async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
+      if(!plant)throw new Error("item not found ")
       myhelper.reshandeler(res, 200, true, plant, ' Single plant ');
     } catch (e) {
       myhelper.reshandeler(res, 500, false, e, e.message);
@@ -53,22 +54,42 @@ class PlantClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
-  static buyPlant = async (req, res) => {
+  static addReview=async(req,res)=>{
     try {
       const plant = await Plant.findById(req.params.id);
-      if (!plant) throw new Error("wrong id 'plant not found!'");
-      req.user.orders.push(plant);
-      await req.user.save({ validateBeforeSave: false });
-      myhelper.reshandeler(
-        res,
-        200,
-        true,
-        req.user.orders,
-        'buy plant is done'
-      );
+      if(!plant)throw new Error("item not found ")
+      req.body.review.userName=req.user.fName+req.user.lName
+      const review=req.body.review
+      await plant.reviews.push(review)
+      await plant.save()
+      myhelper.reshandeler(res, 200, true, review, ' review added ');
     } catch (e) {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
+  static deleteReview=async(req,res)=>{
+    try {
+      const plant = await Plant.findById(req.params.id);
+      if(!plant)throw new Error("item not found ")
+      
+      req.body.review.userName=req.user.fName+req.user.lName
+      const review=req.body.review
+      await plant.reviews.pull(review)
+      await plant.save()
+      myhelper.reshandeler(res, 200, true, review, ' review added ');
+    } catch (e) {
+      myhelper.reshandeler(res, 500, false, e, e.message);
+    }
+  };
+  static allReviews=async(req,res)=>{
+    try {
+      const plant = await Plant.findById(req.params.id);
+      if(!plant)throw new Error("item not found ")
+      myhelper.reshandeler(res, 200, true, plant.reviews, ' review added ');
+    } catch (e) {
+      myhelper.reshandeler(res, 500, false, e, e.message);
+    }
+  };
+  
 }
 module.exports = PlantClass;

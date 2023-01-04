@@ -22,9 +22,13 @@ class CartClass {
     try {
       const cart = await Cart.findOne({ userId: req.user.id });
       if (!cart) throw new Error('No cart with that id!');
-      http://127.0.0.1:3000/api/v1/order/plcacitems
-
-      myhelper.reshandeler(res, 200, true, cart);
+      myhelper.reshandeler(
+        res,
+        200,
+        true,
+        cart,
+        'click her to buy http://127.0.0.1:3000/api/v1/order/plcacitems'
+      );
     } catch (e) {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
@@ -76,7 +80,8 @@ class CartClass {
 
       //   console.log(nDeletedItems);
       cart.itemsCounter('drop', nDeletedItems);
-
+      process.env.cartItems = cart.items;
+      // console.log(process.env.cartItems);
       await cart.save();
       myhelper.reshandeler(res, 200, true, cart, 'Item dropped.');
     } catch (e) {
