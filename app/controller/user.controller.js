@@ -202,6 +202,9 @@ class UserClass {
       'contact us in thses numbers'
     );
   };
+  static homePage = async (req, res) => {
+    myhelper.reshandeler(res, 200, true, null, 'home page');
+  };
 }
 
 module.exports = UserClass;

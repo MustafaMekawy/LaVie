@@ -20,13 +20,11 @@ const auth = async (req, res, next) => {
 const restrictoTo = role => {
   return (req, res, next) => {
     try {
-      if (req.user.role !== role)
-        throw new Error(
-          'You donot have access to perform this action'
-        );
+      if (req.user.role !== role&&req.user.accountType!==role)
+        throw new Error( 'You donot have access to perform this action');
       next();
     } catch (e) {
-      MyHelper.reshandeler(res, 500, false, e, 'Not allowed!!');
+      MyHelper.reshandeler(res, 500, false, e, e.message);
     }
   };
 };

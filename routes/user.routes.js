@@ -21,6 +21,7 @@ router.post('/chooseCategory',auth,userController.chooseCategory)
 router.get('/LearnMore',auth,userController.LearnMore)
 router.get('/contactUS',auth,userController.ContactUS)
 router.get('/logout',auth,userController.Logout)
+router.get('/homepage',auth,userController.homePage)
 
 
 module.exports = router;
