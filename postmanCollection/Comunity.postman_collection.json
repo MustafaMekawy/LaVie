@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "ae84725a-cb75-45a0-aa47-5f11676b2553",
+		"name": "Comunity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createComunity",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"La Vie Comunity\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}comunity/createcomunity",
+					"host": [
+						"{{URL}}comunity"
+					],
+					"path": [
+						"createcomunity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

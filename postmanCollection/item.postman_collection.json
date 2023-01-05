@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "4928a4d0-8f44-456e-9d07-75d2ad5ac5e7",
+		"name": "item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createPlant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shopId\":\"63b3463621e42af9c62a414a\",\r\n    \"name\":\"hacona matata\",\r\n    \"price\":200,\r\n    \"itemType\": \"plant\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}plant/createPlant",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"createPlant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPlant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}plant/GetPlant/63b48458714266dbd228a6c9",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"GetPlant",
+						"63b48458714266dbd228a6c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPlants",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}plant/GetAllPlants",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"GetAllPlants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editPlant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":150\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}plant/editPlant/63b48458714266dbd228a6c9",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"editPlant",
+						"63b48458714266dbd228a6c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}plant/deletePlant/63b3500e2c7a5b428401e783",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"deletePlant",
+						"63b3500e2c7a5b428401e783"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buyPlant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}plant/buyPlant/63b34ef5f53f95a1d4e5b30d",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"buyPlant",
+						"63b34ef5f53f95a1d4e5b30d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addreview",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"review\":{\"Rating\":\"9\",\"review\":\"amazing\"}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}plant/addreview/63b48458714266dbd228a6c9",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"addreview",
+						"63b48458714266dbd228a6c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allreviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}plant/allreviews/63b48458714266dbd228a6c9",
+					"host": [
+						"{{URL}}plant"
+					],
+					"path": [
+						"allreviews",
+						"63b48458714266dbd228a6c9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

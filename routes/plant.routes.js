@@ -1,4 +1,5 @@
 const router = require('express').Router();
+//its item route include plant and seed!
 const PlantController = require('../app/controller/plant.controller');
 const { auth ,restrictoTo} = require('../app/middlewares/auth.middlewares');
 router.post('/createPlant', auth,restrictoTo('professional'), PlantController.createPlant);

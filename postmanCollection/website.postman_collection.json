@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "46553526-7535-4269-a760-db59a857541e",
+		"name": "website",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "LearnMore",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}user/LearnMore",
+					"host": [
+						"{{URL}}user"
+					],
+					"path": [
+						"LearnMore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ContactUs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}user/contactus",
+					"host": [
+						"{{URL}}user"
+					],
+					"path": [
+						"contactus"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

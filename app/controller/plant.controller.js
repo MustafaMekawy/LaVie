@@ -1,5 +1,8 @@
 const Plant = require('../../db/model/item.model');
 const myhelper = require('../helper');
+//plant =item
+//its item class include plant and seed! 
+//i created as plant after that reconize i had plant and seed 
 class PlantClass {
   static createPlant = async (req, res) => {
     try {

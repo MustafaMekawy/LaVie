@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "44713d1e-bc4a-4093-9ad5-33dea9525b6f",
+		"name": "quiz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createquiz",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"about\":\"seed\",\r\n    \"name\":\"quiz2\",\r\n    \"questions\":[\"whats moon color?\",\"sky color?\",\"who is king in forest?\"],\r\n    \"answers\":[\"white\",\"blue\",\"lion\"],\r\n    \"level\":\"beginner\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}quiz/createquiz",
+					"host": [
+						"{{URL}}quiz"
+					],
+					"path": [
+						"createquiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "take quiz",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}quiz/takequiz",
+					"host": [
+						"{{URL}}quiz"
+					],
+					"path": [
+						"takequiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solve quiz",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answers\":[\"red\",\"blue\",\"lion\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/quiz/solvequiz/63b61fb93734f48b8dce1011",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"quiz",
+						"solvequiz",
+						"63b61fb93734f48b8dce1011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "markquiz",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}quiz/markquiz/63b61e10bb5b724b9f046cc5",
+					"host": [
+						"{{URL}}quiz"
+					],
+					"path": [
+						"markquiz",
+						"63b61e10bb5b724b9f046cc5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

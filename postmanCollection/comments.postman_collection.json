@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "e6e03de7-f815-4c24-8185-f073baca32e6",
+		"name": "comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\":\"whts your fav plant and seed\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}comment/createcomment/63b6dcf175b5cbc763b7b4bb",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"createcomment",
+						"63b6dcf175b5cbc763b7b4bb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcomment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}comment/getcomment/63b6e5c81ae6b87d827d9384",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"getcomment",
+						"63b6e5c81ae6b87d827d9384"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getallcomments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}comment/getallcomments",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"getallcomments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editcomment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\":\"how to grow up the plants ?? need advice???\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}comment/editcomment/63b6e5c81ae6b87d827d9384",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"editcomment",
+						"63b6e5c81ae6b87d827d9384"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletcomment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}comment/deletcomment/63b6e8bd634f65e32b0ebbba",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"deletcomment",
+						"63b6e8bd634f65e32b0ebbba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addreplay",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"replay\":\"good man\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}comment/addreplay/63b6e8a9634f65e32b0ebbb6",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"addreplay",
+						"63b6e8a9634f65e32b0ebbb6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "like",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}comment/like/63b6f619d2128a45772f9b53",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"like",
+						"63b6f619d2128a45772f9b53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dislike",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}comment/dislike/63b6f619d2128a45772f9b53",
+					"host": [
+						"{{URL}}comment"
+					],
+					"path": [
+						"dislike",
+						"63b6f619d2128a45772f9b53"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

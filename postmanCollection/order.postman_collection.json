@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "bdec77f9-1271-461f-af2f-0423cae694d4",
+		"name": "order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "plcacitems",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\"63b4847f714266dbd228a6cf\", \"63b485af714266dbd228a72e\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}order/plcacitems",
+					"host": [
+						"{{URL}}order"
+					],
+					"path": [
+						"plcacitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderdetails",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\":\"mustafa mekawy\",\r\n    \"paymentMethod\":\"cash\",\r\n    \"email\":\"mostafa@gmail.com\",\r\n    \"phoneNum\":[\"01069802322\",\"01069802355\",\"01069802352\"],\r\n    \"address\":\"cairo city\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}order/orderdetails/63b57efd9147131630897be2",
+					"host": [
+						"{{URL}}order"
+					],
+					"path": [
+						"orderdetails",
+						"63b57efd9147131630897be2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}order/confirmorder/63b57dff7158e4445ce2dc74",
+					"host": [
+						"{{URL}}order"
+					],
+					"path": [
+						"confirmorder",
+						"63b57dff7158e4445ce2dc74"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmcode",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\":5236\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}order/confirmcode/63b57dff7158e4445ce2dc74",
+					"host": [
+						"{{URL}}order"
+					],
+					"path": [
+						"confirmcode",
+						"63b57dff7158e4445ce2dc74"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "myOrders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}order/myorders",
+					"host": [
+						"{{URL}}order"
+					],
+					"path": [
+						"myorders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

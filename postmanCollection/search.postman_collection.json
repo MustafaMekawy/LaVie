@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "7a956604-f134-4037-989c-4bdf75964396",
+		"name": "search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}search?q=s&c=shop&s=-price",
+					"host": [
+						"{{URL}}search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "s"
+						},
+						{
+							"key": "c",
+							"value": "shop"
+						},
+						{
+							"key": "s",
+							"value": "-price"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

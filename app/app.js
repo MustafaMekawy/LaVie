@@ -7,6 +7,8 @@ const orderRouter = require('../routes/order.routes');
 const blogRouter = require('../routes/blog.routes');
 const searchRouter = require('../routes/search.routes');
 const quizRouter = require('../routes/quiz.routes');
+const ComunityRouter = require('../routes/comunity.routes');
+const commentRouter = require('../routes/comment.routes');
 
 const app = express();
 
@@ -20,4 +22,6 @@ app.use('/api/v1/order', orderRouter);
 app.use('/api/v1/blog', blogRouter);
 app.use('/api/v1/search', searchRouter);
 app.use('/api/v1/quiz', quizRouter);
+app.use('/api/v1/comunity', ComunityRouter);
+app.use('/api/v1/comment', commentRouter);
 module.exports = app;

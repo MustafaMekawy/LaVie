@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "dfd77b93-7e13-417c-913c-b3f01384fd41",
+		"name": "Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createShop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"la vie Store\",\r\n    \"address\":\"cairo,mucattm city\",\r\n    \"phone\":\"01069802322\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}shop/createShop",
+					"host": [
+						"{{URL}}shop"
+					],
+					"path": [
+						"createShop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetShop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}shop/GetShop/63b344750ed6253059ec316d",
+					"host": [
+						"{{URL}}shop"
+					],
+					"path": [
+						"GetShop",
+						"63b344750ed6253059ec316d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllShops",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}shop/GetAllShops",
+					"host": [
+						"{{URL}}shop"
+					],
+					"path": [
+						"GetAllShops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editShop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"phone\":\"01009908522\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}shop/editShop/63b3463621e42af9c62a414a",
+					"host": [
+						"{{URL}}shop"
+					],
+					"path": [
+						"editShop",
+						"63b3463621e42af9c62a414a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteShop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}shop/deleteShop/63b344750ed6253059ec316d",
+					"host": [
+						"{{URL}}shop"
+					],
+					"path": [
+						"deleteShop",
+						"63b344750ed6253059ec316d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

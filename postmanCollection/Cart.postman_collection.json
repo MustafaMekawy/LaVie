@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "992c8648-77ce-4d00-bf1a-09cadd52703b",
+		"name": "Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "createCart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cart/createcart",
+					"host": [
+						"{{URL}}cart"
+					],
+					"path": [
+						"createcart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}cart/additem/63b4847f714266dbd228a6cf",
+					"host": [
+						"{{URL}}cart"
+					],
+					"path": [
+						"additem",
+						"63b4847f714266dbd228a6cf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cart/viewcart",
+					"host": [
+						"{{URL}}cart"
+					],
+					"path": [
+						"viewcart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}cart/dropitem/63b4847f714266dbd228a6cf",
+					"host": [
+						"{{URL}}cart"
+					],
+					"path": [
+						"dropitem",
+						"63b4847f714266dbd228a6cf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

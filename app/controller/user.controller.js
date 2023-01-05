@@ -125,6 +125,7 @@ class UserClass {
   static forgetPassword = async (req, res) => {
     try {
       const user = await User.findOne({ email: req.body.email });
+      //creat passToken to check
       const token = user.createPasswordResetToken();
       await user.save({ validateBeforeSave: false });
       myhelper.reshandeler(
@@ -203,7 +204,9 @@ class UserClass {
     );
   };
   static homePage = async (req, res) => {
-    myhelper.reshandeler(res, 200, true, null, 'home page');
+    const page=`/n http://127.0.0.1:3000/api/v1/search /n http://127.0.0.1:3000/api/v1/user/profile 
+    http://127.0.0.1:3000/api/v1/order/myorders`
+    myhelper.reshandeler(res, 200, true, null, page);
   };
 }
 

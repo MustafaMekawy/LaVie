@@ -65,12 +65,19 @@ const UserSchma = mongoose.Schema(
     },
     points: {
       type: Number,
-      default:0
+      default: 0,
     },
     wallet: {
       type: Number,
-      default:0
+      default: 0,
     },
+    quizes: {
+      type: [mongoose.Schema.ObjectId],
+      ref: 'quiz',
+    },
+    quizAnswers: Array,
+    counter: { type: Number, default: 0 },
+    lastQuizTime: Date,
     age: {
       type: Number,
       min: 21,
@@ -90,8 +97,7 @@ const UserSchma = mongoose.Schema(
     phoneNum: {
       type: String,
       validate(value) {
-        if (!validator.isMobilePhone(value, 'ar-EG'))
-          throw new Error('invalid number');
+        if (!validator.isMobilePhone(value, 'ar-EG')) throw new Error('invalid number');
       },
     },
     resetPasswordToken: String,
@@ -99,13 +105,14 @@ const UserSchma = mongoose.Schema(
   },
   { timestamps: true }
 );
+
 UserSchma.pre('save', async function () {
-   if (this.isModified) {
-    this.wallet+=this.points
+  if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 12);
     this.passwordConfirmation = undefined;
   }
 });
+
 UserSchma.virtual('myBlogs', {
   ref: 'Blog',
   localField: '_id',
@@ -118,10 +125,7 @@ UserSchma.virtual('myOrders', {
 });
 UserSchma.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString('hex');
-  this.resetPasswordToken = crypto
-    .createHash('sha256')
-    .update(resetToken)
-    .digest('hex');
+  this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
   this.resetExpiresTime = Date.now() + 10 * 60 * 1000;
   return resetToken;
 };

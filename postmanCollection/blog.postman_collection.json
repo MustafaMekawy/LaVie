@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "81277d67-8345-48f6-8b34-8a01c9809766",
+		"name": "blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24898486"
+	},
+	"item": [
+		{
+			"name": "Get my blogs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"about\": \"plant\",\r\n    \"name\": \"How to take care of plants?\",\r\n    \"content\": \"plah plah plah....\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}blog/myblogs",
+					"host": [
+						"{{URL}}blog"
+					],
+					"path": [
+						"myblogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getblog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}blog/getblog/63b5bcb9561d68faaae1a554",
+					"host": [
+						"{{URL}}blog"
+					],
+					"path": [
+						"getblog",
+						"63b5bcb9561d68faaae1a554"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getallblogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}blog/getallblogs",
+					"host": [
+						"{{URL}}blog"
+					],
+					"path": [
+						"getallblogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editblog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"about\":\"seed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}blog/editblog/63b5bcb9561d68faaae1a554",
+					"host": [
+						"{{URL}}blog"
+					],
+					"path": [
+						"editblog",
+						"63b5bcb9561d68faaae1a554"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteblog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}blog/deleteblog/63b5bcb9561d68faaae1a554",
+					"host": [
+						"{{URL}}blog"
+					],
+					"path": [
+						"deleteblog",
+						"63b5bcb9561d68faaae1a554"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
