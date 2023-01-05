@@ -3,6 +3,7 @@ const Item = require('../../db/model/item.model');
 const User = require('../../db/model/user.model');
 const myhelper = require('../helper');
 class CartClass {
+  //create cart for every user
   static createCart = async (req, res) => {
     try {
       const user = await User.findById(req.user.id);
@@ -17,7 +18,7 @@ class CartClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
-
+// show items in cart for user before buy and link for buying process
   static viewCart = async (req, res) => {
     try {
       const cart = await Cart.findOne({ userId: req.user.id });
@@ -33,7 +34,7 @@ class CartClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
-
+//add items that i like to buy to my cart shoping
   static addToCart = async (req, res) => {
     try {
       const cart = await Cart.findOne({ userId: req.user.id });
@@ -51,6 +52,7 @@ class CartClass {
         const myObj = { item: item, num: req.body.num };
         cart.items.push(myObj);
       }
+      //itemsCounter is fun to hander number of items in cart
       cart.itemsCounter('add', req.body.num);
       await cart.save();
 

@@ -67,6 +67,7 @@ class CommentClass {
     try{
         const comment = await Comment.findById(req.params.id);
         if (!comment) throw new Error("wrong id 'comment not found!'");
+        //concat user name from user model
         const username=req.user.fName+req.user.lName
         const like=true
         comment.likes.push({like,username})

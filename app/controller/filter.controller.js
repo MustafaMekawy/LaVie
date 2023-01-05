@@ -4,20 +4,24 @@ const Shop = require('../../db/model/shop.model');
 
 class Filter {
   constructor(queryObj) {
+    //set this to go with me in any in class and return this 
     this.query;
     this.queryObj = queryObj;
     this.result = [];
   }
 
   filter() {
+    //first step filter query
+    //expected category
     const categories = ['plant','seed', 'shop', 'blog', 'range', 'difficulty'];
+    //q :for query serch c: category s:sort py price {price or -price}
     const targetParams = ['q', 'c', 's'];
     const qObj = this.queryObj;//{ q: 'r', c: 'plant', s: '-price' }
-
+   //fillter key 
     Object.keys(qObj).forEach(key => {
       if (!targetParams.includes(key)) delete qObj[key];
     });
-
+   //filter categores
     for (const [key, value] of Object.entries(qObj)) {
       if (!categories.includes(value) && key == 'c') delete qObj[key];
     }
@@ -26,9 +30,11 @@ class Filter {
   }
 
   async querySearch() {
+    //secound step serach
     // senario1: quey & empty category
     console.log(this.queryObj);
     if (this.queryObj.q && !this.queryObj.c) {
+      //serch with subset of String
       this.query = await Item.find({
         name: {$regex: this.queryObj.q,$options: 'i',},
       });
@@ -88,6 +94,7 @@ class Filter {
   }
 
   sortDocs() {
+    //third step sort by price
     if (this.queryObj.s) {
       let res = [];
       this.result.forEach(r => {
@@ -95,7 +102,7 @@ class Filter {
       });
 
       this.query = res;
-
+      // strt with - meannig sort from  highest price to lowest price
       if (this.queryObj.s.startsWith('-')) {
         this.queryObj.s = this.queryObj.s.split('-').join('');
         this.query = this.query.sort((a, b) => {

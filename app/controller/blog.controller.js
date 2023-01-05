@@ -1,6 +1,7 @@
 const Blog = require('../../db/model/blog.model');
 const myhelper = require('../helper');
 class BlogClass {
+  //crud blogs 
   static createBlog = async (req, res) => {
     try {
       req.body.userId = req.user.id;
@@ -27,7 +28,6 @@ class BlogClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
-  //crud
   static editBlog = async (req, res) => {
     try {
       const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
@@ -47,7 +47,6 @@ class BlogClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
-
   static myBlogs = async (req, res) => {
     try {
       await req.user.populate('myBlogs');

@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const myhelper = require('../helper');
 
 class UserClass {
+  //to ingore not intrested body
   static inputFilter = (body, ...options) => {
     options.forEach(o => {
       body[o] = undefined;
@@ -52,6 +53,7 @@ class UserClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
+  //admin whos has acsess to assin anothre admin
   static assignAdmin = async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
@@ -71,6 +73,7 @@ class UserClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
+  //get user profile
   static profile = (req, res) => {
     myhelper.reshandeler(
       res,
@@ -106,6 +109,7 @@ class UserClass {
   static changePassword = async (req, res) => {
     try {
       const password = req.body.password;
+      //passcheck is function to compare input pass and pass in database if match if not res error
       if (!(await User.Passcheck(req.user, password)))
         throw new Error('invalid password');
       const newPassword = req.body.newPassword;
@@ -125,7 +129,8 @@ class UserClass {
   static forgetPassword = async (req, res) => {
     try {
       const user = await User.findOne({ email: req.body.email });
-      //creat passToken to check
+      /*create passToken to creat encrypted pass in database and remove it
+      after reset process pass and send it with the link to resetpass function */
       const token = user.createPasswordResetToken();
       await user.save({ validateBeforeSave: false });
       myhelper.reshandeler(
@@ -141,6 +146,8 @@ class UserClass {
   };
   static resetpassword = async (req, res) => {
     try {
+      /* decrpted token that passing in params from forgetPass and compare with that in data base
+      if match rest pass with new pass */ 
       const deecryptedToken = crypto
         .createHash('sha256')
         .update(req.params.token)
@@ -160,6 +167,7 @@ class UserClass {
   };
   static chooseCategory = async (req, res) => {
     try {
+      //after singup user must chosse his category level from 3:'beginner', 'advanced', 'professional'
       const category = ['beginner', 'advanced', 'professional'];
       const inputCategory = category.find(c => {
         console.log(c);
@@ -191,9 +199,11 @@ class UserClass {
       myhelper.reshandeler(res, 500, false, e, e.message);
     }
   };
+  //informaton about website
   static LearnMore = async (req, res) => {
     myhelper.reshandeler(res, 200, true, null, 'polcey and terms');
   };
+  //contact with admins
   static ContactUS = async (req, res) => {
     myhelper.reshandeler(
       res,
