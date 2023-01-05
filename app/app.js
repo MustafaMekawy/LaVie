@@ -6,6 +6,7 @@ const cartRouter = require('../routes/cart.routes');
 const orderRouter = require('../routes/order.routes');
 const blogRouter = require('../routes/blog.routes');
 const searchRouter = require('../routes/search.routes');
+const quizRouter = require('../routes/quiz.routes');
 
 const app = express();
 
@@ -18,4 +19,5 @@ app.use('/api/v1/cart', cartRouter);
 app.use('/api/v1/order', orderRouter);
 app.use('/api/v1/blog', blogRouter);
 app.use('/api/v1/search', searchRouter);
+app.use('/api/v1/quiz', quizRouter);
 module.exports = app;

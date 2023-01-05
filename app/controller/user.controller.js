@@ -83,9 +83,7 @@ class UserClass {
   static editprofile = async (req, res) => {
     try {
       const data = this.inputFilter(req.body, 'password', 'role');
-      const user = await User.findByIdAndUpdate(req.user._id, data, {
-        new: true,
-      });
+      const user = await User.findByIdAndUpdate(req.user._id, data, {new: true,});
       myhelper.reshandeler(
         res,
         200,

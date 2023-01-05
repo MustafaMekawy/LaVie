@@ -9,10 +9,18 @@ const QuizSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    content:{
+    questions:[{type:String}],
+    mark:{
+        type:Number,
+        default:3
+    },
+    answers:[{type:String}],
+    level:{
         type:String,
-        default:""
-        }
+        required:true,
+        enum:['beginner', 'advanced', 'professional']
+    }
+
 });
-const Quiz = mongoose.model('Qize', QuizSchema);
+const Quiz = mongoose.model('Quiz', QuizSchema);
 module.exports = Quiz;

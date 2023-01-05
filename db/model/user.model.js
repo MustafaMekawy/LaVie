@@ -65,6 +65,11 @@ const UserSchma = mongoose.Schema(
     },
     points: {
       type: Number,
+      default:0
+    },
+    wallet: {
+      type: Number,
+      default:0
     },
     age: {
       type: Number,
@@ -95,7 +100,8 @@ const UserSchma = mongoose.Schema(
   { timestamps: true }
 );
 UserSchma.pre('save', async function () {
-  if (this.isModified) {
+   if (this.isModified) {
+    this.wallet+=this.points
     this.password = await bcrypt.hash(this.password, 12);
     this.passwordConfirmation = undefined;
   }
